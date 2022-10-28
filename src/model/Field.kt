@@ -23,7 +23,7 @@ data class Field(val line: Int, val column: Int) {
         neighbors.add(neighbor);
     }
 
-    fun onEvent(callback: (Field, FieldEvent) -> Unit) {
+    fun onEventField(callback: (Field, FieldEvent) -> Unit) {
         callbacks.add(callback);
     }
 

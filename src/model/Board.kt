@@ -1,6 +1,6 @@
 package model
 
-import kotlin.random.Random
+import java.util.*
 
 enum class BoardEvent { VICTORY, DEFEAT };
 
@@ -43,7 +43,7 @@ class Board(val numberOfLines: Int, val numberOfColumns: Int, private val number
     }
 
     private fun sortMines() {
-        val generate = Random;
+        val generate = Random();
 
         var drawnLine = -1;
         var drawnColumn = -1;

@@ -11,7 +11,6 @@ data class Field(val line: Int, val column: Int) {
     var mined: Boolean = false;
 
     // Only read
-    val unmarked: Boolean get() = !marked;
     val closed: Boolean get() = !open;
     val safe: Boolean get() = !mined;
     val goalAchievied: Boolean get() = safe && open || mined && marked;
@@ -36,6 +35,14 @@ data class Field(val line: Int, val column: Int) {
                 callbacks.forEach { it(this, FieldEvent.OPENING) };
                 neighbors.filter { it.closed && it.safe && safeNeighborhood }.forEach { it.open() }
             }
+        }
+    }
+
+    fun changeMarkup() {
+        if (closed) {
+            marked = !marked;
+            val event = if(marked) FieldEvent.MARKING else FieldEvent.UNMARKING
+            callbacks.forEach { it(this, event) }
         }
     }
 

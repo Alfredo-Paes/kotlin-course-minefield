@@ -21,7 +21,7 @@ class MainScreen: JFrame() {
         setSize(690, 438);
         setLocationRelativeTo(null);
         defaultCloseOperation = EXIT_ON_CLOSE;
-        title = "Mine Field";
+        title = "Minefield";
         isVisible = true;
     }
 
